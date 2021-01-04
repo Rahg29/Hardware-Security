@@ -1,0 +1,64 @@
+# c17
+
+# 9 keys
+
+# 5 inputs
+
+# 2 outputs
+
+# 1 inverter
+
+# 9 gates ( 7 NANDs, 2 ANDs, 6 XNORs, 5 XORs )
+
+
+
+INPUT(keyinput1)
+INPUT(keyinput2)
+INPUT(keyinput3)
+INPUT(keyinput4)
+INPUT(keyinput5)
+INPUT(keyinput6)
+INPUT(keyinput7)
+INPUT(keyinput8)
+INPUT(keyinput9)
+
+INPUT(G1)
+INPUT(G2)
+INPUT(G3)
+INPUT(G6)
+INPUT(G7)
+
+OUTPUT(G22)
+OUTPUT(G23)
+
+
+
+G10 = NAND(G1, G3)
+G28 = XNOR(G10, keyinput1)
+G11 = NAND(G3, G6)
+G29 = XOR(G11, keyinput2)
+G19 = NAND(G29, G7)
+G16 = NAND(G29, G2)
+G30 = XNOR(G16, keyinput3)
+G31 = NOT(G28)
+G41 = NAND(G31, G30)
+G42 = NAND(G30, G19)
+
+G32 = XOR(G1, keyinput4)
+G33 = XNOR(G6, keyinput5)
+G34 = XNOR(G2, keyinput6)
+G35 = XOR(G1, keyinput7)
+G36 = XNOR(G6, keyinput8)
+G37 = XNOR(G2, keyinput9)
+
+G38 = XOR(G32, G33)
+G43 = NAND(G34, G38)
+
+G39 = XOR(G35, G36)
+G44 = AND(G37, G39)
+
+G40 = OR(G43, G44)
+
+G22 = XNOR(G40, G41)
+G23 = XNOR(G40, G42)
+

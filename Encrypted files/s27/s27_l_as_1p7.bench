@@ -1,0 +1,61 @@
+# 4 inputs
+# 1 outputs
+# 3 D-type flip-flops
+# 2 inverters
+# 8 gate(1 ANDs +1 NANDs +2 ORs +4 NORs)
+
+INPUT(keyinput1)
+INPUT(keyinput2)
+INPUT(keyinput3)
+INPUT(keyinput4)
+INPUT(keyinput5)
+INPUT(keyinput6)
+INPUT(keyinput7)
+INPUT(keyinput8)
+INPUT(keyinput9)
+
+INPUT(G0)
+INPUT(G1)
+INPUT(G2)
+INPUT(G3)
+INPUT(G5)
+INPUT(G6)
+INPUT(G7)
+
+OUTPUT(G17)
+OUTPUT(G10)
+OUTPUT(G11)
+OUTPUT(G13)
+
+G14 = NOT(G0)
+G8 = AND(G14,G6)
+G20 = XOR(G8, keyinput1)
+G15 = OR(G12,G20)
+G16 = OR(G3,G20)
+G9 = NAND(G16,G15)
+G21 = XOR(G9, keyinput2)
+G22 = XOR(G11, keyinput3)
+G12 = NOR(G1,G7)
+
+G32 = NOR(G14,G22)
+G33 = NOR(G5,G21) 
+G34 = NOR(G2,G12)
+G35 = NOT(G22)
+
+G23 = XOR(G0, keyinput4)
+G24 = XNOR(G2, keyinput5)
+G25 = XNOR(G5, keyinput6)
+G26 = XOR(G0, keyinput7)
+G27 = XNOR(G2, keyinput8)
+G28 = XNOR(G5, keyinput9)
+
+G29 = OR(G23, G24, G25)
+
+G30 = NOR(G26, G27, G28)
+
+G31 = OR(G29, G30)
+
+G10 = XNOR(G31, G32)
+G11 = XNOR(G31, G33)
+G13 = XNOR(G31, G34)
+G17 = XNOR(G31, G35)

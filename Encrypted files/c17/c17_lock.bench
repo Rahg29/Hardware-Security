@@ -1,0 +1,26 @@
+# c17
+
+
+INPUT(keyinput1)
+INPUT(keyinput2)
+INPUT(keyinput3)
+INPUT(G1)
+INPUT(G2)
+INPUT(G3)
+INPUT(G6)
+INPUT(G7)
+
+OUTPUT(G22)
+OUTPUT(G23)
+
+G10 = NAND(G1, G3)
+G28 = XNOR(G10, keyinput1)
+G11 = NAND(G3, G6)
+G29 = XOR(G11, keyinput2)
+G19 = NAND(G29, G7)
+G16 = NAND(G29, G2)
+G30 = XNOR(G16, keyinput3)
+G31 = NOT(G28)
+G22 = NAND(G31, G30)
+G23 = NAND(G30, G19)
+

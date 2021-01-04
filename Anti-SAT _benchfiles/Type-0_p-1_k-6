@@ -1,0 +1,32 @@
+#Type-0
+#P-1
+#Keys-6
+
+INPUT(keyinput4)
+INPUT(keyinput5)
+INPUT(keyinput6)
+INPUT(keyinput7)
+INPUT(keyinput8)
+INPUT(keyinput9)
+
+INPUT(G1)
+INPUT(G2)
+INPUT(G6)
+
+OUTPUT(G40)
+
+G32 = XOR(G1, keyinput4)
+G33 = XNOR(G6, keyinput5)
+G34 = XNOR(G2, keyinput6)
+G35 = XOR(G1, keyinput7)
+G36 = XNOR(G6, keyinput8)
+G37 = XNOR(G2, keyinput9)
+
+G38 = AND(G32, G33, G34)
+
+G39 = NAND(G35, G36, G37)
+
+G40 = AND(G38, G39)
+
+
+
